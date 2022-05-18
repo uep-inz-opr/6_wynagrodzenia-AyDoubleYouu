@@ -17,7 +17,6 @@ class Pracownik():
         pozi = (pozh * 0.18) - 46.33
         pozj = round(pozi - pozf)
         netto = round(pozd - poze - pozj,2)
-        #wynagrodzenia.append(netto)
         return netto 
     
     def skladki_pracodawcy(self):
@@ -29,7 +28,6 @@ class Pracownik():
     def koszty_pracodawcy(self):
         pozl = (self.wynagrodzenie) - round(self.wynagrodzenie* 0.0976,2) -round(self.wynagrodzenie*0.065,2) - round(self.wynagrodzenie* 0.0193,2) - round(self.wynagrodzenie*0.0245,2) - round(self.wynagrodzenie*0.001,2)
         koszt_pracodawcy = round(self.wynagrodzenie + self.wynagrodzenie - pozl,2)
-        #cale_koszty.append(koszt_pracodawcy)
         return koszt_pracodawcy
 
 lista_brutto_brutto =[]
