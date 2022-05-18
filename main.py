@@ -7,12 +7,12 @@ for ilosc in range(ilosc_pracownikow):
 class Pracownik():
     def __init__(self, imie, wynagrodzenie):
         self.imie = str(imie)
-        self.wynagrodzenie = wynagrodzenie
+        self.wynagrodzenie = float(wynagrodzenie)
 
     def wynagrodzenie_netto(self):
-        pozd = (float(self.wynagrodzenie) -float(self.wynagrodzenie)*0.0976 - float(self.wynagrodzenie)*0.015 - float(self.wynagrodzenie)*0.0245)
-        poze = pozd * 0.09
-        pozf = pozd * 0.0775
+        pozd = round(self.wynagrodzenie) -round(self.wynagrodzenie*0.0976,2) - round(self.wynagrodzenie*0.015,2) - round(self.wynagrodzenie*0.0245,2)
+        poze = round(pozd * 0.09,2)
+        pozf = round(pozd * 0.0775,2)
         pozh = round(pozd - 111.25)
         pozi = (pozh * 0.18) - 46.33
         pozj = round(pozi - pozf)
@@ -21,14 +21,14 @@ class Pracownik():
         return netto 
     
     def skladki_pracodawcy(self):
-        skladki = float(self.wynagrodzenie) - float(self.wynagrodzenie)* 0.0976 -float(self.wynagrodzenie)*0.065 - float(self.wynagrodzenie)* 0.0193 - float(self.wynagrodzenie)*0.0245 - float(self.wynagrodzenie)*0.001
-        skladka = round(float(self.wynagrodzenie) - skladki,2)
+        skladki = (self.wynagrodzenie) - round(self.wynagrodzenie* 0.0976,2) -round(self.wynagrodzenie*0.065,2) - round(self.wynagrodzenie* 0.0193,2) - round(self.wynagrodzenie*0.0245,2) - round(self.wynagrodzenie*0.001,2)
+        skladka = round(self.wynagrodzenie - skladki,2)
         #skladki_na_pracownikow.append(skladka)
         return skladka
 
     def koszty_pracodawcy(self):
-        pozl = float(self.wynagrodzenie) - float(self.wynagrodzenie)* 0.0976 -float(self.wynagrodzenie)*0.065 - float(self.wynagrodzenie)* 0.0193 - float(self.wynagrodzenie)*0.0245 - float(self.wynagrodzenie)*0.001
-        koszt_pracodawcy = round(float(self.wynagrodzenie) + float(self.wynagrodzenie) - pozl,2)
+        pozl = (self.wynagrodzenie) - round(self.wynagrodzenie* 0.0976,2) -round(self.wynagrodzenie*0.065,2) - round(self.wynagrodzenie* 0.0193,2) - round(self.wynagrodzenie*0.0245,2) - round(self.wynagrodzenie*0.001,2)
+        koszt_pracodawcy = round(self.wynagrodzenie + self.wynagrodzenie - pozl,2)
         #cale_koszty.append(koszt_pracodawcy)
         return koszt_pracodawcy
 
